@@ -17,12 +17,12 @@
             <div class="city-container">
                 {% include 'weather_app/city_weather.html' with weather_data=weather_data1 daily_forecasts=daily_forecasts1 %}
             </div>
-        {% endinf %}
+        {% endif %}
         {% if weather_data2 %}
             <div class="city-container">
                 {% include 'weather_app/city_weather.html' with weather_data=weather_data2 daily_forecasts=daily_forecasts2 %}
             </div>
-        {% endinf %}
+        {% endif %}
     </div>
 </body>
 </html>
