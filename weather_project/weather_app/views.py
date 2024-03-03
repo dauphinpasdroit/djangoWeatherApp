@@ -21,9 +21,9 @@ def index(request):
         
         context = {
             "weather_data1": weather_data1,
-            "dayli_forecasts1": daily_forecasts1,
+            "daily_forecasts1": daily_forecasts1,
             "weather_data2": weather_data2,
-            "dayli_forecasts2": daily_forecasts2
+            "daily_forecasts2": daily_forecasts2
         }
         return render(request, "weather_app/index.html", context)
     else:
@@ -41,14 +41,14 @@ def fetch_weather_and_forecast(city, API_KEY, current_weather_url, forecast_url)
         "icon": response['weather'][0]['icon'],
     }      
 
-    daily_forecasts = []
-    for daily_data in forecast_response['daily'][:5]:
-        daily_forcasts.append({
-            "day": daytime.datetime.fromtimestampe(daily_data['dt']).strfrtime("%A"),
-            "min_temp": round(daily_data['temp']['min'] - 274.15, 2),
-            "max_temp": round(daily_data['temp']['max'] - 274.15, 2),
-            "description": daily_data['weather'][0]['description'],
-            "icon": daily_data['weather'][0]['icon'],
-        })
+    # daily_forecasts = []
+    # for daily_data in forecast_response['daily'][:5]:
+    #     daily_forcasts.append({
+    #         "day": daytime.datetime.fromtimestampe(daily_data['dt']).strfrtime("%A"),
+    #         "min_temp": round(daily_data['temp']['min'] - 274.15, 2),
+    #         "max_temp": round(daily_data['temp']['max'] - 274.15, 2),
+    #         "description": daily_data['weather'][0]['description'],
+    #         "icon": daily_data['weather'][0]['icon'],
+    #     })
 
-    return weather_data, daily_forecasts
+    return weather_data
